@@ -11,13 +11,15 @@ public class SFXManager : MonoBehaviour
     public AudioClip BgMusicGameplay;
     public AudioClip BgMusicTitleScreen;
 
-    private AudioSource SFXaudioSource;
-
+    public AudioSource SFXaudioSource1;
+    public AudioSource SFXaudioSource2;
     private AudioSource BgMusicAudioSource;
+
+    public AudioClip playerShootClip;
 
     public void Awake()
     {
-        SFXaudioSource = GetComponent<AudioSource>();
+        SFXaudioSource1 = GetComponent<AudioSource>();
         //GameObject child = this.transform.Find("BgMusic").gameObject;
         BgMusicAudioSource = gameObject.transform.Find("BgMusic").gameObject.GetComponent<AudioSource>();
 
@@ -31,26 +33,26 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerShoot()
     {
-        SFXaudioSource.pitch = Random.Range(0.90f, 1.25f);
-        SFXaudioSource.PlayOneShot(playerShoot);
+        SFXaudioSource2.pitch = Random.Range(0.8f, 1.2f);
+        SFXaudioSource2.PlayOneShot(playerShoot);
     }
 
     //called in the PlayerController Script
     public void PlayerDamage()
     {
-        SFXaudioSource.PlayOneShot(playerDamage);
+        SFXaudioSource1.PlayOneShot(playerDamage);
     }
 
     //called in the PlayerController Script
     public void PlayerExplosion()
     {
-        SFXaudioSource.PlayOneShot(playerExplosion);
+        SFXaudioSource1.PlayOneShot(playerExplosion);
     }
 
     //called in the AsteroidDestroy script
     public void AsteroidExplosion()
     {
-        SFXaudioSource.PlayOneShot(asteroidExplosion);
+        SFXaudioSource1.PlayOneShot(asteroidExplosion);
     }
 
     
