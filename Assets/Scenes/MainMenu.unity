@@ -2941,6 +2941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerShoot: {fileID: 8300000, guid: 6849edb7907042c4f87111fba6d6df5b, type: 3}
   asteroidExplosion: {fileID: 8300000, guid: c93f50310cb66304cb8320f567cdd208, type: 3}
+  specialAsteroidExplosion: {fileID: 8300000, guid: b6c3394b76081c043b225c94b19b225d, type: 3}
   playerDamage: {fileID: 8300000, guid: 1e4ad6b6cc52e4544bd4aa89d86dbd32, type: 3}
   playerExplosion: {fileID: 8300000, guid: f85d3c5c2d4c58d40bed641ceab66fee, type: 3}
   BgMusicGameplay: {fileID: 8300000, guid: 545ccd56ea3ca814bb1eedf252004152, type: 3}

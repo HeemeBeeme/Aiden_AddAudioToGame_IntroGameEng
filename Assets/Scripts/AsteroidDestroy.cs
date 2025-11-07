@@ -9,12 +9,14 @@ public class AsteroidDestroy : MonoBehaviour
     //public GameObject playerExplosion;    
 
     private SFXManager sfxManager;
+    private AsteroidSpawner asteroidSpawner;
     private GameManager gameManager;
     private GameObject player;
 
     void Awake()
     {
         sfxManager = ( GameObject.Find("SFXManager").GetComponent<SFXManager>() );
+        asteroidSpawner = ( GameObject.Find("AsteroidSpawner").GetComponent<AsteroidSpawner>() );
         gameManager = ( GameObject.Find("GameManager").GetComponent<GameManager>() );
         player = GameObject.Find("Player");
     }
@@ -45,12 +47,23 @@ public class AsteroidDestroy : MonoBehaviour
 
         if (other.tag == "Bullet")
         {
+            asteroidSpawner.asteroidKillCount++;
             gameManager.score = gameManager.score += 10;
             Instantiate(explosion, this.transform.position, this.transform.rotation);
             Destroy(this.gameObject);
             //Debug.Log("killed by bullet");
-            sfxManager.AsteroidExplosion();
-            Destroy(other.gameObject);
+
+            if(asteroidSpawner.asteroidKillCount % 10 == 0)
+            {
+                sfxManager.SpecialAsteroidExplosion();
+                Destroy(other.gameObject);
+            }
+            else
+            {
+                sfxManager.AsteroidExplosion();
+                Destroy(other.gameObject);
+            }
+            
         }
 
         if (other.tag == "Boundary")

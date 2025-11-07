@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SFXManager : MonoBehaviour
 {
     public AudioClip playerShoot;
     public AudioClip asteroidExplosion;
+    public AudioClip specialAsteroidExplosion;
     public AudioClip playerDamage;
     public AudioClip playerExplosion;
     public AudioClip BgMusicGameplay;
@@ -56,6 +58,13 @@ public class SFXManager : MonoBehaviour
         SFXaudioSource1.PlayOneShot(asteroidExplosion);
     }
 
+    //called in the AsteroidDestroy script
+    public void SpecialAsteroidExplosion()
+    {
+        SFXaudioSource2.pitch = Random.Range(0.8f, 1.2f);
+        SFXaudioSource1.PlayOneShot(specialAsteroidExplosion);
+    }
+
     
     public void BGMusicMainMenu()
     {
@@ -67,6 +76,5 @@ public class SFXManager : MonoBehaviour
     {
         BgMusicAudioSource.GetComponent<AudioSource>().clip = BgMusicGameplay;
         BgMusicAudioSource.Play();
-
     }
 }

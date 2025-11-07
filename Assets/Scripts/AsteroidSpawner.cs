@@ -12,6 +12,8 @@ public class AsteroidSpawner : MonoBehaviour
     public int waveWait;
     public int waveCount = 0;
 
+    public int asteroidKillCount = 0;
+
     public bool spawn = true;
        
 
