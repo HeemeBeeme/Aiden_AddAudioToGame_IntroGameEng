@@ -29,7 +29,6 @@ public class SFXManager : MonoBehaviour
     }
 
 
-
     //called in the PlayerController Script
     public void PlayerShoot()
     {
@@ -40,7 +39,8 @@ public class SFXManager : MonoBehaviour
     //called in the PlayerController Script
     public void PlayerDamage()
     {
-        SFXaudioSource1.PlayOneShot(playerDamage);
+        SFXaudioSource2.pitch = Random.Range(0.8f, 1.2f);
+        SFXaudioSource2.PlayOneShot(playerDamage);
     }
 
     //called in the PlayerController Script
@@ -52,6 +52,7 @@ public class SFXManager : MonoBehaviour
     //called in the AsteroidDestroy script
     public void AsteroidExplosion()
     {
+        SFXaudioSource2.pitch = Random.Range(0.8f, 1.2f);
         SFXaudioSource1.PlayOneShot(asteroidExplosion);
     }
 
